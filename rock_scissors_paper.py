@@ -1,7 +1,7 @@
 """
 Rock, Scissors, Paper
 
-Group members: Patrick, 
+Group members: Patrick, Chrisaanth, 
 """
 
 import random
