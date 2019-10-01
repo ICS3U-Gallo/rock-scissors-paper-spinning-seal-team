@@ -1,0 +1,17 @@
+score_hum = 0
+score_comp = 0
+
+def decider(comp, human):
+    global score_comp, score_hum
+    Win = "You win"
+    Lose = "You Lose"
+    Dra = "Draw"
+    if comp == human:
+        return Dra
+    if comp == 'Rock' and human == 'Paper' or comp == 'Scissors' and human == 'Rock' or comp == 'Paper' and human == 'Scissors':
+        score_hum += 1
+        return Win
+    if comp == 'Paper' and human == 'Rock' or comp == 'Rock' and human == 'Scissors' or comp == 'Scissors' and human == 'Paper':
+        score_comp += 1
+        return Lose
+
