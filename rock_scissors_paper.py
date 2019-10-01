@@ -6,8 +6,14 @@ Group members: Patrick, Chrisaanth,
 
 import random
 
+draw = True
+score_hum = 0
+score_comp = 0
+rock_played = 1
+scissors_played = 1
+paper_played = 1
 
-def gcf(r, p, s):  #Finds greatest common denominator.
+def gcf(r, p, s):
     found = False
     perclist = [r, p, s]
     perclist.sort()
@@ -15,17 +21,15 @@ def gcf(r, p, s):  #Finds greatest common denominator.
     num = largest
     while found is False:
         num -= 1
-        if r % num == 0 and p % num == 0 and s % num == 0:
+        if r%num == 0 and p%num == 0 and s%num == 0:
             return num
 
-
-def quitquest(yesno):  #Program quitting logic.
+def quitquest(yesno):
     global draw
     if yesno == 'Yes':
         draw = False
 
-
-def decider(comp, human):  #Basic logic; determines rock paper scissors hierarchy.
+def decider(comp, human):
     global score_comp, score_hum
     win = "You win"
     lose = "You Lose"
@@ -39,18 +43,17 @@ def decider(comp, human):  #Basic logic; determines rock paper scissors hierarch
         score_comp += 1
         return lose
 
-
-def predict_choice(rock, paper, scissors):  #Computer determines whether to play rock paper or scissors depending on player's past data.
+def predict_choice(rock, paper, scissors):
     total = rock + paper + scissors
 
-    percrock = int((rock / total)*100)
-    percpaper = int((paper / total)*100)
-    percscissors = int((scissors / total)*100)
+    percrock = int((rock/total)*100)
+    percpaper = int((paper/ total)*100)
+    percscissors = int((scissors/total)*100)
 
     greatestcf = gcf(percrock, percpaper, percscissors)
-    lowrock = int(percrock / greatestcf)
-    lowscissors = int(percscissors / greatestcf)
-    lowpaper = int(percpaper / greatestcf)
+    lowrock = int(percrock/greatestcf)
+    lowscissors = int(percscissors/greatestcf)
+    lowpaper = int(percpaper/greatestcf)
 
     perclist = []
     finalnumlist = [lowrock, lowscissors, lowpaper]
@@ -74,8 +77,7 @@ def predict_choice(rock, paper, scissors):  #Computer determines whether to play
         answerop = 'Rock'
     return answerop
 
-
-while Draw is True:
+while draw is True:
     inp = input("\n" + "\n" + 'Please enter your choice (Rock, Paper, or Scissors): ')
     if inp == 'Rock':
         rock_played += 1
